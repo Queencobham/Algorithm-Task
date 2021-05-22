@@ -3,7 +3,7 @@ function convertFahrToCelsius (deg) {
     const result = (deg-32) * 5/9;
     const str = JSON.stringify(deg);
 
-    if(typeof deg === "number"){
+    if(Number(result) && typeof deg !== "boolean" && deg !== "" && typeof deg !== "object" && (!isNaN(deg))){
         console.log(result.toFixed(4))
         return(result)
     }else if(Array.isArray(deg)){
@@ -24,12 +24,15 @@ convertFahrToCelsius ({temp:0})
 function checkYuGiOh(n){
     const array=[];
     const newArray=[];
-if(Number(n) || typeof n === "number"){
+if(Number(n) && n !== "" && typeof n !== "boolean" && typeof n !== "object"){
     for(let i=1; i<=n; i++){
         array.push(i)
         if(i % 2 == 0 || i % 3 == 0 || i % 5 == 0){
             var str="";
-            if(i % 2 == 0 && i % 3 == 0){
+            if(i % 2 === 0 && i % 3 == 0 && i % 5 == 0){
+                str +=('yu-gi-oh');
+            }  
+            else if(i % 2 == 0 && i % 3 == 0){
                 str +=('yu-gi');
             }
             else if(i % 2 == 0 && i % 5 == 0){
